@@ -1,0 +1,39 @@
+
+//
+//  PrefixHeader.pch
+//  Architect_Gabriella_iOS
+//
+//  Created by Gabriella on 2017/5/27.
+//  Copyright © 2017年 Gabriella. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "ConstantDefinition.h"
+#import "AppDelegate.h"
+#import "AppDelegate+AppServise.h"
+
+#pragma mark ************* 基础类
+#import"BaseViewController.h"
+
+#pragma mark ************* 第三方库
+
+#import "MBProgressHUD+XY.h"
+#import "MBProgressHUD.h"
+
+#import "YYKit.h"
+#import "OpenUDID.h"
+
+
+
+
+//#import "NSObject+Instance.h"
+
+#import "CommonMacros.h"
+#import "FontAndColor.h"
+#import "UtilsMacros.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
