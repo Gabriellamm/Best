@@ -8,12 +8,9 @@
 
 #ifndef ConstantDefinition_h
 #define ConstantDefinition_h
+
+
 #define PAY_WXPAY @"wxpay"
-
-
-//  放常数
-#define mainScreemHeight [UIScreen mainScreen].bounds.size.height
-#define mainScreemWidth [UIScreen mainScreen].bounds.size.width
 
 #define carrier @"中国联通"
 #define dbrand @"iPhone"

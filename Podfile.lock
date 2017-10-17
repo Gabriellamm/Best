@@ -36,8 +36,6 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.1.2)
-  - UMengSocialCOM (5.2.1)
-  - ViewDeck (3.1.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -53,8 +51,6 @@ DEPENDENCIES:
   - Reveal-SDK
   - SDWebImage
   - SVProgressHUD
-  - UMengSocialCOM
-  - ViewDeck
   - YYKit
 
 SPEC CHECKSUMS:
@@ -68,10 +64,8 @@ SPEC CHECKSUMS:
   Reveal-SDK: 43be4e662864e937960d0d04d005135e29c4e53b
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
-  ViewDeck: 942d90dd23c9f97cc8038be352255378167edcca
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 3dd69edeb74f4325d61908277c59fc9c9d4a244f
+PODFILE CHECKSUM: 01ef761170e267f60310f2d1932ffc9d4b5d9c77
 
 COCOAPODS: 1.1.0

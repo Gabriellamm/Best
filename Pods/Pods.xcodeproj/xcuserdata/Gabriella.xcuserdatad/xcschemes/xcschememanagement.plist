@@ -54,11 +54,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ViewDeck.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>YYKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,22 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38A29FD4AF8CD5E079672CE1173E1E2F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4DEEC83D658C8AA066B49C7218BE6BD2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>7C0126D717EB28DC6DB2EEA2E20B5172</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D288E134FFCA29A2990D34BEC78C036</key>
+		<key>90C6AF9BB6BA0A82F9A6647705BDC783</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CCB7992DE34D199385189F6DCF0B690F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D92A0AEFF01F1E9AFD8B43E49B59E28A</key>
+		<key>C66AA1D014D180DCB4BF7C849C9937C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>DBA6001481CEA0EBA031CC5C94508FAA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBD39142F5ED4CBBBD51FFA76EE9DCB2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FCCF66FB650CFB8AE9672D7F02A8F53B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

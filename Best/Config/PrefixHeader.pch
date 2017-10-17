@@ -10,6 +10,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 #import "ConstantDefinition.h"
+
 #import "AppDelegate.h"
 #import "AppDelegate+AppServise.h"
 
@@ -21,17 +22,24 @@
 #import "MBProgressHUD+XY.h"
 #import "MBProgressHUD.h"
 
+#pragma mark ************* 工具类
 #import "YYKit.h"
 #import "OpenUDID.h"
-
+#import <objc/runtime.h>
+#import "PPNetworkHelper.h"
+#import "URLMacros.h"
 
 
 
 //#import "NSObject+Instance.h"
 
 #import "CommonMacros.h"
+#import "ProjectLog.h"
 #import "FontAndColor.h"
 #import "UtilsMacros.h"
+
+#import "UserManager.h"
+
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

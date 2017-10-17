@@ -21,10 +21,9 @@ KUserLoginTypeTaobao = 4,
 typedef void (^LoginBlock)(BOOL success,NSString *des);
 
 #pragma mark ************* macros
-#define userManager    [UserManager shareInstance]
+#define userManager [UserManager sharedUserManager]
 
 @interface UserManager : NSObject
-
 
 @property (nonatomic,strong)UserInfo *userInfo;
 @property (nonatomic,assign)UserLoginType loginType;
@@ -32,12 +31,11 @@ typedef void (^LoginBlock)(BOOL success,NSString *des);
 
 #pragma mark ************* function
 
-+(UserManager *)shareInstance;
-
+SINGLETON_FOR_HEADER(UserManager)
 /**
  
  加载缓存的用户数据
- 
+
  @return 是否加载成功
  
  */
@@ -67,4 +65,11 @@ typedef void (^LoginBlock)(BOOL success,NSString *des);
  */
 -(void)autoLoginToServer:(LoginBlock)completion;
 
+
+/**
+ 退出登录
+
+ @param completion 回调
+ */
+- (void)logout:(LoginBlock)completion;
 @end

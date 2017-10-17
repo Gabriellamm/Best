@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "LoginViewController.h"
 #import "RootNavigationVC.h"
-#import "UserManager.h"
 #import "MainTabBarController.h"
 
 @implementation AppDelegate (AppServise)
