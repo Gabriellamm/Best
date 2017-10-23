@@ -62,7 +62,7 @@ SINGLETON_FOR_CLASS(UserManager)
     UMSocialPlatformType PlatFormType;
     if (loginType == KUserLoginTypeQQ) {
         PlatFormType = UMSocialPlatformType_QQ;
-    }else if (loginType ==KUserLoginTypeWeVhat){
+    }else if (loginType ==KUserLoginTypeWeChat){
         PlatFormType = UMSocialPlatformType_WechatSession;
     }else{
         PlatFormType = UMSocialPlatformType_UnKnown;
@@ -109,6 +109,14 @@ SINGLETON_FOR_CLASS(UserManager)
 // 自动登录
 -(void)autoLoginToServer:(LoginBlock)completion{
 
+    [PPNetworkHelper POST:NSStringFormat(@"%@%@",URL_main,URL_user_auto_login) parameters:nil success:^(id responseObject) {
+        [self LoginSuccess:responseObject completion:completion];
+
+    } failure:^(NSError *error) {
+        if (completion) {
+            completion(NO,error.localizedDescription);
+        }
+    }];
 }
 
 /**
@@ -122,5 +130,32 @@ SINGLETON_FOR_CLASS(UserManager)
 
 -(void)LoginSuccess:(id)response completion:(LoginBlock)completion{
 
+    if (ValidDict(response)) {
+        if (ValidDict(response[@"data"])) {
+            NSDictionary *data = response[@"data"];
+            if (ValidStr(data[@"imId"]) && ValidStr(data[@"imPass"])) {
+                // 登陆 iM
+
+                 KPostNotification(KNotificationLoginState, @YES);
+
+            }else{
+                if (completion) {
+                    completion(NO,@"IM登陆失败");
+                }
+            }
+        }else{
+            if (completion) {
+                completion(NO,@"登陆返回数据异常");
+            }
+            KPostNotification(KNotificationLoginState, @NO);
+        }
+
+
+    }else{
+        if (completion) {
+            completion(NO,@"登陆返回数据异常");
+        }
+        KPostNotification(KNotificationLoginState, @NO);
+    }
 }
 @end

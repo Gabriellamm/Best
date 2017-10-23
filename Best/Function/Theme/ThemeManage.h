@@ -26,5 +26,5 @@ SINGLETON_FOR_HEADER(ThemeManage)
 -(UIColor *)getThemeColor:(NSString *)colorName;
 
 // 通过名字获取字体
--(UIFont *)getThemeFont:(NSString *)fontName;
+-(UIFont *)getThemeFont:(CGFloat )fontName;
 @end

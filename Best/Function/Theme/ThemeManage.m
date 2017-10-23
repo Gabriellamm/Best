@@ -119,13 +119,11 @@ SINGLETON_FOR_CLASS(ThemeManage)
 }
 
 // 通过名字获取字体
--(UIFont *)getThemeFont:(NSString *)fontName{
+-(UIFont *)getThemeFont:(CGFloat )fontName{
 
 #warning  主题可以改变字体  客户可以改变字体大小
-    if (fontName.length ==0) {
-        return nil;
-    }
-    return nil;
+    return [UIFont systemFontOfSize:fontName];
+
 }
 
 -(void)dealloc{

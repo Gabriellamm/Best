@@ -25,6 +25,10 @@
     self.window = [[UIWindow alloc ]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+    UIViewController* vc = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+
+    self.window.rootViewController = vc;
     
 
 }
@@ -43,13 +47,16 @@
                 DLog(@"自动登陆成功");
                 KPostNotification(KNotificationAutoLoginSuccess, nil);
             }else{
+
+                 KPostNotification(KNotificationLoginState, @NO);
                 [MBProgressHUD showErrorMessage:NSStringFormat(@"自动登录失败：%@",des)];
 
             }
 
         }];
     }else{
-        KPostNotification(KNotificationLoginState, @NO);
+        [[NSNotificationCenter defaultCenter] postNotificationName:KNotificationLoginState object:@NO];
+//        KPostNotification(KNotificationLoginState, @NO);
     }
 }
 
@@ -132,7 +139,7 @@
         self.mainTabBarC = nil;
 
         RootNavigationVC *Navigation = [[RootNavigationVC alloc]initWithRootViewController:[LoginViewController new]];
-        KAppWindow.rootViewController = Navigation;
+        self.window.rootViewController = Navigation;
 
         CATransition *animation = [CATransition animation];
         animation.type = @"fade";
@@ -164,6 +171,12 @@
             [MBProgressHUD showTopTipMessage:@"网络状态不佳" isWindow:YES];
         }
     }
+}
+
+
+-(void)dealloc{
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:KNotificationLoginState object:nil];
 }
 #pragma mark ************* getter / setter
 @end

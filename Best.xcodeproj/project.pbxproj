@@ -16,7 +16,6 @@
 		9838A13C1F808F7C006113F7 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 9838A13B1F808F7C006113F7 /* OpenUDID.m */; };
 		984C21451F7CF7E700D2A596 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 984C21441F7CF7E700D2A596 /* main.m */; };
 		984C21481F7CF7E700D2A596 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 984C21471F7CF7E700D2A596 /* AppDelegate.m */; };
-		984C214E1F7CF7E700D2A596 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984C214C1F7CF7E700D2A596 /* Main.storyboard */; };
 		984C21501F7CF7E700D2A596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 984C214F1F7CF7E700D2A596 /* Assets.xcassets */; };
 		984C21531F7CF7E700D2A596 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 984C21511F7CF7E700D2A596 /* LaunchScreen.storyboard */; };
 		984C215E1F7CF7E700D2A596 /* BestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 984C215D1F7CF7E700D2A596 /* BestTests.m */; };
@@ -49,6 +48,13 @@
 		986D28041F95E0650094124C /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986D27FC1F95E0650094124C /* UShareUI.framework */; };
 		986D28061F95E08E0094124C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 986D28051F95E08E0094124C /* libsqlite3.tbd */; };
 		989600801F7E48C900848593 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9896007F1F7E48C900848593 /* MainTabBarController.m */; };
+		98C4DEEA1F99D78D006C7672 /* FindVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C4DEE91F99D78D006C7672 /* FindVC.m */; };
+		98C4DEED1F99D94E006C7672 /* MessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C4DEEC1F99D94E006C7672 /* MessageVC.m */; };
+		98C4DEF01F99D960006C7672 /* MeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C4DEEF1F99D960006C7672 /* MeVC.m */; };
+		98C4DEF71F9A0191006C7672 /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C4DEF21F9A0191006C7672 /* TabBar.m */; };
+		98C4DEF81F9A0191006C7672 /* TabBarBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C4DEF41F9A0191006C7672 /* TabBarBadge.m */; };
+		98C4DEF91F9A0191006C7672 /* TabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C4DEF61F9A0191006C7672 /* TabBarItem.m */; };
+		98C4FF101F9A0AAA006C7672 /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = 98C4FF0F1F9A0AAA006C7672 /* Skins */; };
 		98EB96B31F85C25200DB2FF2 /* ThemeManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EB96B21F85C25200DB2FF2 /* ThemeManage.m */; };
 		98EB96B61F85C28E00DB2FF2 /* UIView+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EB96B51F85C28E00DB2FF2 /* UIView+Theme.m */; };
 		98EB96B91F85C2A400DB2FF2 /* UILabel+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EB96B81F85C2A400DB2FF2 /* UILabel+Theme.m */; };
@@ -95,7 +101,6 @@
 		984C21441F7CF7E700D2A596 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		984C21461F7CF7E700D2A596 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		984C21471F7CF7E700D2A596 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		984C214D1F7CF7E700D2A596 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		984C214F1F7CF7E700D2A596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		984C21521F7CF7E700D2A596 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		984C21541F7CF7E700D2A596 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,6 +164,19 @@
 		9896007E1F7E48C900848593 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		9896007F1F7E48C900848593 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		989600811F7E871000848593 /* 项目日志.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "项目日志.h"; path = "Best/Config/项目日志.h"; sourceTree = "<group>"; };
+		98C4DEE81F99D78D006C7672 /* FindVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindVC.h; sourceTree = "<group>"; };
+		98C4DEE91F99D78D006C7672 /* FindVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindVC.m; sourceTree = "<group>"; };
+		98C4DEEB1F99D94E006C7672 /* MessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageVC.h; sourceTree = "<group>"; };
+		98C4DEEC1F99D94E006C7672 /* MessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageVC.m; sourceTree = "<group>"; };
+		98C4DEEE1F99D960006C7672 /* MeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeVC.h; sourceTree = "<group>"; };
+		98C4DEEF1F99D960006C7672 /* MeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeVC.m; sourceTree = "<group>"; };
+		98C4DEF11F9A0191006C7672 /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
+		98C4DEF21F9A0191006C7672 /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar.m; sourceTree = "<group>"; };
+		98C4DEF31F9A0191006C7672 /* TabBarBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarBadge.h; sourceTree = "<group>"; };
+		98C4DEF41F9A0191006C7672 /* TabBarBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarBadge.m; sourceTree = "<group>"; };
+		98C4DEF51F9A0191006C7672 /* TabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarItem.h; sourceTree = "<group>"; };
+		98C4DEF61F9A0191006C7672 /* TabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarItem.m; sourceTree = "<group>"; };
+		98C4FF0F1F9A0AAA006C7672 /* Skins */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Skins; sourceTree = "<group>"; };
 		98EB96B11F85C25200DB2FF2 /* ThemeManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManage.h; sourceTree = "<group>"; };
 		98EB96B21F85C25200DB2FF2 /* ThemeManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManage.m; sourceTree = "<group>"; };
 		98EB96B41F85C28E00DB2FF2 /* UIView+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Theme.h"; sourceTree = "<group>"; };
@@ -279,7 +297,7 @@
 				984C21A91F7CF81800D2A596 /* Utils */,
 				984C21461F7CF7E700D2A596 /* AppDelegate.h */,
 				984C21471F7CF7E700D2A596 /* AppDelegate.m */,
-				984C214C1F7CF7E700D2A596 /* Main.storyboard */,
+				98C4FF0F1F9A0AAA006C7672 /* Skins */,
 				984C214F1F7CF7E700D2A596 /* Assets.xcassets */,
 				984C21511F7CF7E700D2A596 /* LaunchScreen.storyboard */,
 				984C21541F7CF7E700D2A596 /* Info.plist */,
@@ -432,6 +450,8 @@
 		984C218D1F7CF81700D2A596 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				98C4DEE81F99D78D006C7672 /* FindVC.h */,
+				98C4DEE91F99D78D006C7672 /* FindVC.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -479,6 +499,8 @@
 		984C21931F7CF81700D2A596 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				98C4DEEB1F99D94E006C7672 /* MessageVC.h */,
+				98C4DEEC1F99D94E006C7672 /* MessageVC.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -526,6 +548,8 @@
 		984C21991F7CF81700D2A596 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				98C4DEEE1F99D960006C7672 /* MeVC.h */,
+				98C4DEEF1F99D960006C7672 /* MeVC.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -649,10 +673,10 @@
 		984C21A91F7CF81800D2A596 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				986AD5D31F7F57C00099F60B /* UtilsMacros.h */,
 				980317B41F95B7D80094D52C /* AES */,
 				980317A91F950C280094D52C /* NetWork */,
 				9838A1391F808F7C006113F7 /* OpenUDID */,
-				986AD5D31F7F57C00099F60B /* UtilsMacros.h */,
 				986AD5D41F7F73AA0099F60B /* MBProgressHUD */,
 			);
 			path = Utils;
@@ -779,9 +803,23 @@
 			path = UMSocialUI;
 			sourceTree = "<group>";
 		};
+		986D28071F975B350094124C /* TabbarVIew */ = {
+			isa = PBXGroup;
+			children = (
+				98C4DEF11F9A0191006C7672 /* TabBar.h */,
+				98C4DEF21F9A0191006C7672 /* TabBar.m */,
+				98C4DEF31F9A0191006C7672 /* TabBarBadge.h */,
+				98C4DEF41F9A0191006C7672 /* TabBarBadge.m */,
+				98C4DEF51F9A0191006C7672 /* TabBarItem.h */,
+				98C4DEF61F9A0191006C7672 /* TabBarItem.m */,
+			);
+			path = TabbarVIew;
+			sourceTree = "<group>";
+		};
 		9896007A1F7E488A00848593 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				986D28071F975B350094124C /* TabbarVIew */,
 				9896007E1F7E48C900848593 /* MainTabBarController.h */,
 				9896007F1F7E48C900848593 /* MainTabBarController.m */,
 			);
@@ -957,8 +995,8 @@
 				986D28011F95E0650094124C /* UMSocialSDKPromptResources.bundle in Resources */,
 				986AD5E91F7F99E10099F60B /* MBHUD_Info@3x.png in Resources */,
 				986AD5ED1F7F99E10099F60B /* MBHUD_Warn@2x.png in Resources */,
+				98C4FF101F9A0AAA006C7672 /* Skins in Resources */,
 				986AD5EC1F7F99E10099F60B /* MBHUD_Error@2x.png in Resources */,
-				984C214E1F7CF7E700D2A596 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1070,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				984C21AD1F7CF81800D2A596 /* TableViewController_Base.m in Sources */,
+				98C4DEF91F9A0191006C7672 /* TabBarItem.m in Sources */,
 				984C21AC1F7CF81800D2A596 /* BaseViewController.m in Sources */,
 				984C21B01F7CF85E00D2A596 /* AppDelegate+AppServise.m in Sources */,
 				986AD5D21F7F2C970099F60B /* GameInfo.m in Sources */,
@@ -1040,20 +1079,25 @@
 				980317B01F950C280094D52C /* HeaderModel.m in Sources */,
 				986AD5CC1F7F2B8B0099F60B /* UserManager.m in Sources */,
 				98EB96BC1F85C2B700DB2FF2 /* UIButton+Theme.m in Sources */,
+				98C4DEF01F99D960006C7672 /* MeVC.m in Sources */,
 				984C21481F7CF7E700D2A596 /* AppDelegate.m in Sources */,
 				986AD5C41F7F1B0E0099F60B /* LoginViewController.m in Sources */,
 				98EB96B91F85C2A400DB2FF2 /* UILabel+Theme.m in Sources */,
+				98C4DEF81F9A0191006C7672 /* TabBarBadge.m in Sources */,
 				981D69F11F8CD5A200FF7D84 /* MBProgressHUD+XY.m in Sources */,
 				98EB96C21F85C2F300DB2FF2 /* UINavigationBar+Theme.m in Sources */,
 				98EB96B61F85C28E00DB2FF2 /* UIView+Theme.m in Sources */,
+				98C4DEED1F99D94E006C7672 /* MessageVC.m in Sources */,
 				986AD5C81F7F223C0099F60B /* RootNavigationVC.m in Sources */,
 				984C21AB1F7CF81800D2A596 /* BaseModel.m in Sources */,
 				98EB96B31F85C25200DB2FF2 /* ThemeManage.m in Sources */,
 				9838A13C1F808F7C006113F7 /* OpenUDID.m in Sources */,
 				980317B71F95B7D80094D52C /* AESCipher.m in Sources */,
+				98C4DEEA1F99D78D006C7672 /* FindVC.m in Sources */,
 				989600801F7E48C900848593 /* MainTabBarController.m in Sources */,
 				980317B11F950C280094D52C /* PPNetworkCache.m in Sources */,
 				98EB96BF1F85C2E500DB2FF2 /* UITabBar+Theme.m in Sources */,
+				98C4DEF71F9A0191006C7672 /* TabBar.m in Sources */,
 				980317B21F950C280094D52C /* PPNetworkHelper.m in Sources */,
 				984C21451F7CF7E700D2A596 /* main.m in Sources */,
 			);
@@ -1091,14 +1135,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		984C214C1F7CF7E700D2A596 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				984C214D1F7CF7E700D2A596 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		984C21511F7CF7E700D2A596 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

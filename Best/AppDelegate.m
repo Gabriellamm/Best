@@ -18,14 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+
+
+    // 设置app服务 通知 网络等
+    [self initAppService];
+    
     // 设置window
     [self initWondow];
 
     // 设置用户数据
     [self initUserManager];
 
-    // 设置app服务 通知 网络等
-    [self initAppService];
     
     return YES;
 

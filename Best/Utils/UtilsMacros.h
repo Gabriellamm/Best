@@ -9,6 +9,22 @@
 #ifndef UtilsMacros_h
 #define UtilsMacros_h
 
+//单例化一个类
+#define SINGLETON_FOR_HEADER(className) \
+\
++ (className *)shared##className;
+
+#define SINGLETON_FOR_CLASS(className) \
+\
++ (className *)shared##className { \
+static className *shared##className = nil; \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+shared##className = [[self alloc] init]; \
+}); \
+return shared##className; \
+}
+
 // 发送通知
 #define KPostNotification(name,obj) [[NSNotificationCenter defaultCenter]postNotificationName:name object:obj];
 //-------------------打印日志-------------------------
@@ -21,7 +37,8 @@
 
 //拼接字符串
 #define NSStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]
-
+//字体
+#define SYSTEMFONT(size) [UIFont systemFontOfSize:size]
 
 //颜色
 #define KClearColor [UIColor clearColor]
@@ -34,10 +51,18 @@
 #define KRGBColor(R,G,B,alpha) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:alpha]
 #define kRandomColor    KRGBColor(arc4random_uniform(256)/255.0,arc4random_uniform(256)/255.0,arc4random_uniform(256)/255.0)        //随机色生成
 
+
+
+
 // 主题
 #define ThemeColor(colorName) [[ThemeManage sharedThemeManage] getThemeColor:colorName]
-#define ThemeColor(imgName) [[ThemeManage sharedThemeManage] getThemeImg:imgName]
-#define ThemeColor(fontName) [[ThemeManage sharedThemeManage] getThemeFont:fontName]
+#define ThemeImage(imgName) [[ThemeManage sharedThemeManage] getThemeImg:imgName]
+#define ThemeFont(fontName) [[ThemeManage sharedThemeManage] getThemeFont:fontName]
+
+//强弱引用
+//强弱引用
+#define kWeakSelf(type)  __weak typeof(type) weak##type = type;
+#define kStrongSelf(type) __strong typeof(type) type = weak##type;
 
 //获取屏幕宽高
 #define KScreenWidth ([[UIScreen mainScreen] bounds].size.width)
@@ -57,21 +82,7 @@
 #define ValidData(f) (f!=nil && [f isKindOfClass:[NSData class]])
 
 
-//单例化一个类      ??? 需要改进
-#define SINGLETON_FOR_HEADER(className) \
-\
-+ (className *)shared##className;
 
-#define SINGLETON_FOR_CLASS(className) \
-\
-+ (className *)shared##className { \
-static className *shared##className = nil; \
-static dispatch_once_t onceToken; \
-dispatch_once(&onceToken, ^{ \
-shared##className = [[self alloc] init]; \
-}); \
-return shared##className; \
-}
 
 
 #endif /* UtilsMacros_h */

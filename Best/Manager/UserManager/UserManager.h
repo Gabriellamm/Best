@@ -11,7 +11,7 @@
 
 typedef NS_ENUM(NSInteger, UserLoginType) {
 KUserLoginTypeUnkown = 0,
-KUserLoginTypeWeVhat = 1,
+KUserLoginTypeWeChat = 1,
 KUserLoginTypeQQ = 2,
 KUserLoginTypeZifubao = 3,
 KUserLoginTypeTaobao = 4,
@@ -25,13 +25,16 @@ typedef void (^LoginBlock)(BOOL success,NSString *des);
 
 @interface UserManager : NSObject
 
+SINGLETON_FOR_HEADER(UserManager)
+
 @property (nonatomic,strong)UserInfo *userInfo;
 @property (nonatomic,assign)UserLoginType loginType;
 @property (nonatomic,assign)BOOL isLogined;// 是否登陆成功
 
 #pragma mark ************* function
 
-SINGLETON_FOR_HEADER(UserManager)
+
+
 /**
  
  加载缓存的用户数据
