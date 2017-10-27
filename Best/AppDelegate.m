@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MapEngine.h"
 
 
 @interface AppDelegate ()
@@ -29,6 +30,8 @@
     // 设置用户数据
     [self initUserManager];
 
+    // 初始化map
+    [[MapEngine sharedMapEngine] initMap];
     
     return YES;
 

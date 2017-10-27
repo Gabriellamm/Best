@@ -1,69 +1,67 @@
 //
 //  MainTabBarController.m
-//  Best
+//  MiAiApp
 //
-//  Created by Gabriella on 2017/9/29.
-//  Copyright © 2017年 Gabriella. All rights reserved.
-/**
- 
- 自定义   更换肤色 
- */
+//  Created by 徐阳 on 2017/5/18.
+//  Copyright © 2017年 徐阳. All rights reserved.
+//
 
 #import "MainTabBarController.h"
-#import "Tabbar.h"
+
+#import "RootNavigationVC.h"
 #import "FindVC.h"
 #import "MessageVC.h"
 #import "MeVC.h"
 
-#import "RootNavigationVC.h"
-
+#import "TabBarItem.h"
 
 @interface MainTabBarController ()<TabBarDelegate>
-@property (nonatomic,strong)NSMutableArray *VCS; // tabbar root VC
-@property (nonatomic,strong)TabBar *tab;
+
+@property (nonatomic,strong) NSMutableArray * VCS;//tabbar root VC
+
 @end
 
 @implementation MainTabBarController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // 一、
-    [self setTabbar];
-
-    // 三、
-    [self setupAllChildVC];
-
+    //初始化tabbar
+    [self setUpTabBar];
+    
+    //添加子控制器
+    [self setUpAllChildViewController];
 
 }
 
-//  当tabbar frame 改变时就会调用
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+}
+
 -(void)viewDidLayoutSubviews{
-
-    // 二、
+    [super viewDidLayoutSubviews];
     [self removeOriginControls];
-
-}
-#pragma mark ************* setTabbar
--(void)setTabbar{
-
-        _tab = [[TabBar alloc]initWithFrame:self.tabBar.bounds ];
-
-        _tab.badgeTitleFont = ThemeFont(11.0f);
-        _tab.itemTitleFont = ThemeFont(10.0f);
-        _tab.itemImageRatio         = 0.7;
-        self.tab.itemTitleColor         = KBlackColor;
-        self.tab.selectedItemTitleColor = CNavBgColor2;
-        _tab.delegate = self;
-
-        [self.tabBar addSubview:_tab];
 }
 
-#pragma mark ************* 添加子控制器
--(void)setupAllChildVC{
-    _VCS = [NSMutableArray new];
+#pragma mark ————— 初始化TabBar —————
+-(void)setUpTabBar{
+    [self.tabBar addSubview:({
+        
+        TabBar *tabBar = [[TabBar alloc] init];
+        tabBar.frame     = self.tabBar.bounds;
+        tabBar.delegate  = self;
+        
+        self.TabBar = tabBar;
+    })];
+    
+}
+#pragma mark - ——————— 初始化VC ————————
+-(void)setUpAllChildViewController{
+    _VCS = @[].mutableCopy;
 
-    //4.创建选项按钮
+
 
     NSArray *titles = @[@"发现",@"信息",@"我的"];
     NSArray *imgNames = @[
@@ -71,79 +69,103 @@
                           @"home_tab_icon_2.png",
                           @"home_tab_icon_3.png"
                           ];
-    NSArray *selectimageNames = @[];
 
-    FindVC * findVC = [[FindVC alloc]init];
-    MessageVC * messVC = [[MessageVC alloc]init];
-    MeVC *meVC = [[MeVC alloc]init];
+
+
+
+    FindVC *makeFriendVC = [[FindVC alloc]init];
+    [self setupChildViewController:makeFriendVC title:@"发现" imageName:@"home_tab_icon_1" seleceImageName:@""];
+
+    MessageVC *msgVC = [[MessageVC alloc]init];
+    [self setupChildViewController:msgVC title:@"信息" imageName:@"home_tab_icon_2" seleceImageName:@""];
     
-    NSArray *vcs = @[findVC,messVC,meVC];
-
-    for (int i = 0; i<vcs.count; i++) {
-            [self setupChildVC:vcs[i] withTitle:titles[i] withImageName:imgNames[i] withSelectName:nil];
-        UIViewController *VC = vcs[i];
-
-        [self.tab addTabBarItem:VC.tabBarItem];
-
-    }
-
+    MeVC *mineVC = [[MeVC alloc]init];
+    [self setupChildViewController:mineVC title:@"我的" imageName:@"home_tab_icon_3" seleceImageName:@""
+     ];
 
 
     self.viewControllers = _VCS;
-
-
 }
 
-#pragma mark ************* 提取系统自带的tabbar 子控制器删除
--(void)removeOriginControls{
+-(void)setupChildViewController:(UIViewController*)controller title:(NSString *)title imageName:(NSString *)imageName seleceImageName:(NSString *)selectImageName{
+    //    controller.title = title;
+    controller.tabBarItem.title = title;//跟上面一样效果
+    controller.tabBarItem.image = [UIImage imageNamed:imageName];
+    controller.tabBarItem.selectedImage = [UIImage imageNamed:selectImageName];
 
-    [self.tabBar.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[UIControl class]]) {
-            [obj removeFromSuperview];
-        }
+//    controller.tabBarItem.badgeValue = _VCS.count%2==0 ? @"100": @"1";
+    //包装导航控制器
+    RootNavigationVC *nav = [[RootNavigationVC alloc]initWithRootViewController:controller];
+    controller.title = title;
+    [_VCS addObject:nav];
+    
+}
+
+#pragma mark ————— 统一设置tabBarItem属性并添加到TabBar —————
+- (void)setViewControllers:(NSArray *)viewControllers {
+    
+    self.TabBar.badgeTitleFont         = SYSTEMFONT(11.0f);
+    self.TabBar.itemTitleFont          = SYSTEMFONT(10.0f);
+    self.TabBar.itemImageRatio         = self.itemImageRatio == 0 ? 0.7 : self.itemImageRatio;
+    self.TabBar.itemTitleColor         = KBlackColor;
+    self.TabBar.selectedItemTitleColor = CNavBgColor2;
+    
+//    self.TabBar.tabBarItemCount = viewControllers.count;
+
+    [viewControllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        UIViewController *VC = (UIViewController *)obj;
+        
+        UIImage *selectedImage = VC.tabBarItem.selectedImage;
+        VC.tabBarItem.selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        
+        [self addChildViewController:VC];
+        
+        [self.TabBar addTabBarItem:VC.tabBarItem];
     }];
 }
 
--(void)setupChildVC:(UIViewController *)VC withTitle:(NSString *)title withImageName:(NSString *)imageName withSelectName:(NSString *)selectImageName{
+#pragma mark ————— 选中某个tab —————
+- (void)setSelectedIndex:(NSUInteger)selectedIndex {
+    
+    [super setSelectedIndex:selectedIndex];
+    
+    self.TabBar.selectedItem.selected = NO;
+    self.TabBar.selectedItem = self.TabBar.tabBarItems[selectedIndex];
+    self.TabBar.selectedItem.selected = YES;
+}
 
-    VC.tabBarItem.title = title;
-    VC.tabBarItem.image = [UIImage imageNamed:imageName];
-    if (selectImageName) {
-        VC.tabBarItem.selectedImage = [UIImage imageNamed:selectImageName];
-    }
-
-    RootNavigationVC *rootNVC = [[RootNavigationVC alloc]initWithRootViewController:VC];
-    [_VCS addObject:rootNVC];
-
-
+#pragma mark ————— 取出系统自带的tabbar并把里面的按钮删除掉 —————
+- (void)removeOriginControls {
+    
+    [self.tabBar.subviews enumerateObjectsUsingBlock:^(__kindof UIView * obj, NSUInteger idx, BOOL * stop) {
+        
+        if ([obj isKindOfClass:[UIControl class]]) {
+            
+            [obj removeFromSuperview];
+        }
+    }];
 }
 
 
 #pragma mark - TabBarDelegate Method
 
 - (void)tabBar:(TabBar *)tabBarView didSelectedItemFrom:(NSInteger)from to:(NSInteger)to {
-
+    
     self.selectedIndex = to;
 }
 
-
--(void)addChildViewController:(UIViewController *)childController{
-
-
+- (BOOL)shouldAutorotate {
+    return [self.selectedViewController shouldAutorotate];
 }
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return [self.selectedViewController supportedInterfaceOrientations];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

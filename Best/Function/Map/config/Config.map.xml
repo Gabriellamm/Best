@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--如何定义?-->
+<map>
+    
+    <platform id="1" appKey="rVxHQou32pVVIMSLgLehBeOw9P7Mns4r" factoryName="BaiduMapFactory" isOpen="YES"/>
+    
+    <platform id="2" appKey="7525205809e3cb826ee1718e3adf440a" factoryName="GaodeMapFactory" isOpen="NO"/>
+    
+</map>
