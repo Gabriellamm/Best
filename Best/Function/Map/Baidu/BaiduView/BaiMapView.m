@@ -23,15 +23,23 @@
 }
 
 //构造方法需要指定MapView大小
+//-(instancetype)initWithFrame:(CGRect)frame{
+//
+//    self = [super init];
+//    if (self) {
+//
+//        _mapView = [[BMKMapView alloc]initWithFrame:frame];
+//    }
+//
+//    return self;
+//}
+
 -(instancetype)initWithFrame:(CGRect)frame{
-
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
-
         _mapView = [[BMKMapView alloc]initWithFrame:frame];
     }
-
+    // 为什么不跳出来了？
     return self;
 }
-
 @end

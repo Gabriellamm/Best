@@ -12,6 +12,7 @@
 #import "FindVC.h"
 #import "MessageVC.h"
 #import "MeVC.h"
+#import "TestViewController.h"
 
 #import "TabBarItem.h"
 
@@ -63,7 +64,7 @@
 
 
 
-    NSArray *titles = @[@"发现",@"信息",@"我的"];
+    NSArray *titles = @[@"发现",@"信息",@"我的",@"测试"];
     NSArray *imgNames = @[
                           @"home_tab_icon_1.png",
                           @"home_tab_icon_2.png",
@@ -83,6 +84,8 @@
     [self setupChildViewController:mineVC title:@"我的" imageName:@"home_tab_icon_3" seleceImageName:@""
      ];
 
+    TestViewController * testVC = [[TestViewController alloc]init];
+    [self setupChildViewController:testVC title:@"测试" imageName:nil seleceImageName:nil];
 
     self.viewControllers = _VCS;
 }

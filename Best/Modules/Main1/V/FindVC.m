@@ -61,7 +61,8 @@
 
     _absMapFactory = [[MapEngine sharedMapEngine] getMapFactory];
     _absMapView  = [_absMapFactory getMapViewWithFrame:[UIScreen mainScreen].bounds];
-
+ DLog(@"_absMapFactory :%@ _absMapView:%@",_absMapFactory,_absMapView)
+    
     [self.view addSubview:[_absMapView getView]];
 
 

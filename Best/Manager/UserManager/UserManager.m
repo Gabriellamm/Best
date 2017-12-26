@@ -28,14 +28,14 @@ SINGLETON_FOR_CLASS(UserManager)
  编译时 id 和 instancetype  不检查类型
  */
 #pragma mark ————— 初始化用户管理 —————
--(instancetype)init{
-
-    self = [super init];
-    if (self) {
-
-    }
-    return self;
-}
+//-(instancetype)init{
+//
+//    self = [super init];
+//    if (self) {
+//
+//    }
+//    return self;
+//}
 
 // 对于缓存的数据 是否缓存成功
 -(BOOL)loadUserInfo{

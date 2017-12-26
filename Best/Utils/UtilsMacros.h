@@ -9,26 +9,12 @@
 #ifndef UtilsMacros_h
 #define UtilsMacros_h
 
-//单例化一个类
-#define SINGLETON_FOR_HEADER(className) \
-\
-+ (className *)shared##className;
 
-#define SINGLETON_FOR_CLASS(className) \
-\
-+ (className *)shared##className { \
-static className *shared##className = nil; \
-static dispatch_once_t onceToken; \
-dispatch_once(&onceToken, ^{ \
-shared##className = [[self alloc] init]; \
-}); \
-return shared##className; \
-}
 
 // 发送通知
 #define KPostNotification(name,obj) [[NSNotificationCenter defaultCenter]postNotificationName:name object:obj];
 //-------------------打印日志-------------------------
-//DEBUG  模式下打印日志,当前行
+//DEBUG打印 模式下打印日志,当前行
 #ifdef DEBUG
 #define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else

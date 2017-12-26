@@ -43,8 +43,8 @@ SINGLETON_FOR_CLASS(MapEngine)
         }
     } @catch (NSException *exception) {
         DLog(@"创建工厂失败，是否配置文件有问题");//补救措施
-    } @finally {
-        return nil;
     }
+
+    return nil;
 }
 @end

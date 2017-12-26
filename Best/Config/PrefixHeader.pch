@@ -10,6 +10,11 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#import "CommonMacros.h"
+#import "ProjectLog.h"
+#import "FontAndColor.h"
+#import "UserManager.h"
+
 #import "UtilsMacros.h"
 #import "ConstantDefinition.h"
 
@@ -23,6 +28,7 @@
 
 #import "MBProgressHUD+XY.h"
 #import "MBProgressHUD.h"
+#import "HttpPayUtils.h"
 
 #pragma mark ************* 工具类
 #import "YYKit.h"
@@ -34,15 +40,9 @@
 
 
 
-//#import "NSObject+Instance.h"
-
-#import "CommonMacros.h"
-#import "ProjectLog.h"
-#import "FontAndColor.h"
-#import "UserManager.h"
 
 #import "Masonry.h"
-// 定义这个常量，就可以不用在开发过程中使用"mas_"前缀。
+// 定义这个常量，就可以不用在开发过程中使用"mas_"前缀。 Masonry使用前注意
 #define MAS_SHORTHAND
 // 定义这个常量，就可以让Masonry帮我们自动把基础数据类型的数据，自动装箱为对象类型。
 #define MAS_SHORTHAND_GLOBALS

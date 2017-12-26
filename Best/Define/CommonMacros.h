@@ -47,4 +47,31 @@
 // 网络改变通知
 #define KNotificationnetworkStateChange @"KNotificationnetworkStateChange"
 
+
+#define kCDDDemoViewInputViewHeight     48
+#define kKeyboardAnimationDuration      0.25f
+#define kKeyboardAnimationCurve         7
+// 单利
+
+
+#define SINGLETON_FOR_HEADER(className) +(className *)shared##className;
+
+#define SINGLETON_FOR_CLASS(className) \
+static className *_instance;\
++(className *)shared##className{\
+if(!_instance){\
+_instance=[[self alloc]init];\
+}\
+return _instance;\
+}\
++(id)allocWithZone:(struct _NSZone *)zone{\
+static dispatch_once_t dispatchOnce;\
+dispatch_once(&dispatchOnce, ^{\
+_instance=[super allocWithZone:zone];\
+});\
+return _instance;\
+}
+
+
+
 #endif /* CommonMacros_h */

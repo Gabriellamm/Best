@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AbstractMapView.h"
 
-@interface BaiMapView : UIView<AbstractMapView>
+@interface BaiMapView : NSObject<AbstractMapView>
 
 @end
