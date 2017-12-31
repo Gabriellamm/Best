@@ -26,6 +26,7 @@
 		9818147B1FD03E740054BEE0 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 981814761FD03E740054BEE0 /* libWeChatSDK.a */; };
 		9818147C1FD03E740054BEE0 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 981814771FD03E740054BEE0 /* README.txt */; };
 		981D69F11F8CD5A200FF7D84 /* MBProgressHUD+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = 981D69F01F8CD5A200FF7D84 /* MBProgressHUD+XY.m */; };
+		9823CB671FF4A3F600F41FCD /* FunctViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9823CB661FF4A3F600F41FCD /* FunctViewController.m */; };
 		9830C0E81FD7F69B005F2151 /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9830C0E61FD7F69B005F2151 /* TestCell.m */; };
 		9830C0E91FD7F69B005F2151 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9830C0E71FD7F69B005F2151 /* TestCell.xib */; };
 		9830C0EC1FD7F804005F2151 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9830C0EB1FD7F804005F2151 /* TestModel.m */; };
@@ -165,6 +166,8 @@
 		9818147A1FD03E740054BEE0 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		981D69EF1F8CD5A200FF7D84 /* MBProgressHUD+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+XY.h"; sourceTree = "<group>"; };
 		981D69F01F8CD5A200FF7D84 /* MBProgressHUD+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+XY.m"; sourceTree = "<group>"; };
+		9823CB651FF4A3F600F41FCD /* FunctViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctViewController.h; sourceTree = "<group>"; };
+		9823CB661FF4A3F600F41FCD /* FunctViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctViewController.m; sourceTree = "<group>"; };
 		9830C0E51FD7F69B005F2151 /* TestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCell.h; sourceTree = "<group>"; };
 		9830C0E61FD7F69B005F2151 /* TestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCell.m; sourceTree = "<group>"; };
 		9830C0E71FD7F69B005F2151 /* TestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 				986AD5C51F7F22090099F60B /* Navigation */,
 				986AD5C11F7F1AEE0099F60B /* Login */,
 				9896007A1F7E488A00848593 /* TabBar */,
+				9823CB651FF4A3F600F41FCD /* FunctViewController.h */,
+				9823CB661FF4A3F600F41FCD /* FunctViewController.m */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -1426,6 +1431,7 @@
 				98154ABC1FD82F8100B41F02 /* TextDataHandler.m in Sources */,
 				98154AB01FD8120A00B41F02 /* CDDMutableArray.m in Sources */,
 				984C21451F7CF7E700D2A596 /* main.m in Sources */,
+				9823CB671FF4A3F600F41FCD /* FunctViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
