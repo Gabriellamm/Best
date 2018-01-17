@@ -69,11 +69,11 @@ SINGLETON_FOR_CLASS(UserManager)
     }
 
     if (loginType != KUserLoginTypeUnkown) {
-        [MBProgressHUD showActivityMessageInView:@"授权中。。。"];
+//        [MBProgressHUD showActivityMessageInView:@"授权中。。。"];
 
         [[UMSocialManager defaultManager] getUserInfoWithPlatform:PlatFormType currentViewController:nil completion:^(id result, NSError *error) {
             if (error) {
-                [MBProgressHUD hideHUD];
+//                [MBProgressHUD hideHUD];
                 if (completion) {
                     completion(NO,error.localizedDescription);
                 }
@@ -95,12 +95,12 @@ SINGLETON_FOR_CLASS(UserManager)
 
 #pragma mark ————— 手动登录到服务器 —————
 -(void)loginToServer:(NSDictionary *)params completion:(LoginBlock)completion{
-    [MBProgressHUD showActivityMessageInView:@"登录中..."];
+//    [MBProgressHUD showActivityMessageInView:@"登录中..."];
     [PPNetworkHelper POST:NSStringFormat(@"%@%@",URL_main,URL_user_login) parameters:params success:^(id responseObject) {
         [self LoginSuccess:responseObject completion:completion];
 
     } failure:^(NSError *error) {
-        [MBProgressHUD hideHUD];
+//        [MBProgressHUD hideHUD];
         if (completion) {
             completion(NO,error.localizedDescription);
         }

@@ -1,10 +1,4 @@
-//
-//  FirstView.m
-//  iOS面试题
-//
-//  Created by Gabriella on 2017/11/30.
-//  Copyright © 2017年 Gabriella. All rights reserved.
-//
+
 
 #import "TestV.h"
 #import <UIKit/UIKit.h>
@@ -16,7 +10,6 @@
 #import "TestHandlerProtocol.h"
 #import "TextDataHandler.h"
 #import "TestModel.h"
-
 
 
 @interface TestV ()<UITableViewDataSource,UITableViewDelegate,CDDMutableArrayDelegate>
@@ -54,8 +47,6 @@
 
 }
 
-
-
 - (void)drawRect:(CGRect)rect {
 
 //    self.backgroundColor = [UIColor whiteColor];
@@ -79,10 +70,6 @@
 //    NSLog(@"blockC = %@",blockC);
 //    _testBlock = blockC;
 
-
-
-
-
 }
 
 
@@ -101,7 +88,7 @@
 }
 
 
-
+#pragma mark -----------------------------------tableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
 
@@ -123,10 +110,13 @@
 
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *selectArr = @[@"TestNextViewController",@"AnimationVC"];
+UIViewController *VC = self.context.businessObject.baseController;
+//    UIViewController *VC = [self presentingViewController];
+    [XiaJumpManager navigation:VC pushToSpecifiedVC:selectArr[indexPath.row]];
+}
 - (void)didAddObject:(id)anObject withinArr:(CDDMutableArray*)arr{
-
-
     if (arr == [((id<TestHandlerProtocol>)self.context.dataHandler) getDatas] && anObject) {
         [self.functionTV reloadData];
 
@@ -144,7 +134,6 @@
     }
 }
 
-
 - (void)scrollingToBottom:(BOOL)animated
 {
     int cellCount = (int)[_functionTV.dataSource tableView:_functionTV numberOfRowsInSection:0];
@@ -160,6 +149,11 @@
         [_functionTV setContentOffset:offset animated:animated];
     }
 }
+
+
+
+
+
 
 - (void)dealloc
 {

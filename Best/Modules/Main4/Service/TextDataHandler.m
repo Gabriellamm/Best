@@ -14,10 +14,7 @@
 @interface TextDataHandler ()
 
 @end
-
-
 @implementation TextDataHandler
-
 
 - (instancetype)init
 {
@@ -29,7 +26,7 @@
 }
 
 -(CDDMutableArray *)getDatas{
-
+   
     return  self.datas;
 }
 

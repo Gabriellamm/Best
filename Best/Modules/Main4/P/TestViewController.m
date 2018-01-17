@@ -36,13 +36,6 @@ NSNumber *myNumber,*floatNumber,*intNumber,*number1;
     [super viewDidLoad];
     self.title =  @"测试";
 
-    //------------- 1 -------------
-//    TestV * testV = [[TestV alloc]initWithFrame:self.view.bounds];
-//    testV.backgroundColor = [UIColor brownColor];
-//    testV.blueDelegate = self;
-//    self.view  = testV;
-
-
     [self initContext];
 
     self.testV = [[TestV alloc]initWithFrame:self.view.bounds];
@@ -53,23 +46,22 @@ NSNumber *myNumber,*floatNumber,*intNumber,*number1;
 
 }
 
-
-
 -(void)initContext{
 
     TextDataHandler *dataHandler = [TextDataHandler new];
-    TestModel *model = [TestModel new];
-    model.Name = @"内存问题";
-    [dataHandler insertNewModel:model];
+    TestModel *modelCache = [TestModel new];
+    modelCache.Name = @"内存问题";
+    [dataHandler insertNewModel:modelCache];
+
+    TestModel *modelPop= [TestModel new];
+    modelPop.Name = @"动画";
+    [dataHandler insertNewModel:modelPop];
     
     TestBusinessObject *businessO = [TestBusinessObject new];
     businessO.baseController = self;
     self.context = [[CDDContext alloc]initWithDataHandler:dataHandler withBusinessObject:businessO];
 
     // 获取数据交给datahandler
-
-
-
 }
 #pragma mark ************* function
 
@@ -79,9 +71,6 @@ NSNumber *myNumber,*floatNumber,*intNumber,*number1;
     [[HttpPayUtils sharedHttpPayUtils] payWithName:@"Dream" price:@"1"];
 
 //    TestNextViewController *next = [[TestNextViewController alloc]init];
-
-
-
 
     /*
      相同点 ：都能跳转

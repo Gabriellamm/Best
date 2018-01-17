@@ -15,14 +15,8 @@
  #warning  最好使用全局的？？？
  UINavigationBar *navar = [UINavigationBar appearance];
  ---------------------  总结  --------------------
- 
- 
- 
- 
+
  */
-
-
-
 
 #ifndef _____h
 #define _____h

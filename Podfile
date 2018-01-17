@@ -1,28 +1,19 @@
-
-# OC
-use_frameworks!
+platform :ios,'8.2'
 target 'Best' do
 
-pod 'ReactiveObjC'
-pod 'JSONModel'
-pod 'AFNetworking'
 pod 'SDWebImage'
-pod 'MBProgressHUD'
-pod 'ViewDeck'
-pod 'MJRefresh'
+pod 'AFNetworking', '~> 3.1.0'
+pod 'LCProgressHUD'
 pod 'SVProgressHUD'
-pod 'MJExtension'
-pod 'MMDrawerController'
+pod 'MBProgressHUD'
+pod 'pop'
 pod 'Masonry'
+pod 'JSONModel'
+pod 'MJExtension'
+pod 'MJRefresh'
 pod 'MOBFoundation'
-pod ‘YYKit’
-
-
-# pod 'BaiduMapKit'
+pod 'ReactiveObjC'
+pod 'SDWebImage'
+pod 'ViewDeck'
+pod 'YYKit'
 end
-
-
-
-
-
-

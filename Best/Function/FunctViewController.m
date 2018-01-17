@@ -8,7 +8,7 @@
 
 #import "FunctViewController.h"
 
-@interface FunctViewController ()
+@interface FunctViewController ()<UICollectionViewDataSourcePrefetching>
 
 @end
 
@@ -16,8 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
 
 }
 
@@ -28,13 +26,36 @@
         UITextField *teF = [UITextField new];
 //        teF.contentVerticalAlignment
         teF.enablesReturnKeyAutomatically  =YES;// 输入框有值才能点击键盘
-self.navigationController setNavigationBarHidden:<#(BOOL)#> animated:<#(BOOL)#>
+//self.navigationController setNavigationBarHidden:<#(BOOL)#> animated:<#(BOOL)#>
+
+//        2、 获取一个随机数范围在：[500,1000），包括500，不包括1000
+
+                       int y = (arc4random() % 501) + 500;
+
+
+
+
     }
+                       //                       3、获取一个随机整数，范围在[from,to），包括from，不包括to
+
+                                      -(int)getRandomNumber:(int)from to:(int)to
+
+                                      {
+
+                                          return (int)(from + (arc4random() % (to - from + 1))); //+1,result is [from to]; else is [from, to)!!!!!!!
+
+                                      }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+// indexPaths are ordered ascending by geometric distance from the collection view
+- (void)collectionView:(UICollectionView *)collectionView prefetchItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths{
+
+
+}
 /*
 #pragma mark - Navigation
 

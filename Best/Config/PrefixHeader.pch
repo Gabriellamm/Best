@@ -26,9 +26,10 @@
 
 #pragma mark ************* 第三方库
 
-#import "MBProgressHUD+XY.h"
 #import "MBProgressHUD.h"
 #import "HttpPayUtils.h"
+//pageview
+#import "SGPagingView.h"
 
 #pragma mark ************* 工具类
 #import "YYKit.h"
@@ -36,10 +37,13 @@
 #import <objc/runtime.h>
 #import "PPNetworkHelper.h"
 #import "URLMacros.h"
-#import "ThemeManage.h"
-
-
-
+#import "ThemeManage.h"// 主题
+#import "LocalizationManager.h"
+#import "XiaJumpManager.h"//  跳转
+// 动画
+#import "POPSpringAnimation.h"
+#import "POPBasicAnimation.h"
+#import "UIView+ShowPresentVC.h"// 寻找父视图
 
 #import "Masonry.h"
 // 定义这个常量，就可以不用在开发过程中使用"mas_"前缀。 Masonry使用前注意

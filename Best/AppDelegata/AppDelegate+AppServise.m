@@ -10,36 +10,70 @@
 #import <UIKit/UIKit.h>
 #import "LoginViewController.h"
 #import "RootNavigationVC.h"
-#import "MainTabBarController.h"
+#import "JMTabBarController.h"
+#import "FindVC.h"
+#import "MessageVC.h"
+#import "TestViewController.h"
+#import "MeVC.h"
 
 @implementation AppDelegate (AppServise)
-
-
-
-
 #pragma mark ************* def
 #pragma mark ************* override
 #pragma mark ************* function
 // 初始化wondows
 -(void)initWondow{
-    self.window = [[UIWindow alloc ]initWithFrame:[UIScreen mainScreen].bounds];
+
+
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+
+    //初始化标题数组, 未选择图片数组, 选择图片数组, 控制器数组
+    NSMutableArray *titleArr = [NSMutableArray arrayWithObjects:@"首页",@"制作视频",@"测量",@"个人中心", nil];
+    NSMutableArray *imageNormalArr = [NSMutableArray arrayWithObjects:@"tab1_nor",@"tab2_nor",@"tab3_nor",@"tab4_nor", nil];
+    NSMutableArray *imageSelectedArr = [NSMutableArray arrayWithObjects:@"tab1_sel",@"tab2_sel",@"tab3_sel",@"tab4_sel", nil];
+
+
+    FindVC *makeFriendVC = [[FindVC alloc]init];
+    MessageVC *msgVC = [[MessageVC alloc]init];
+    MeVC *mineVC = [[MeVC alloc]init];
+    TestViewController * testVC = [[TestViewController alloc]init];
+    NSArray *VCs = @[makeFriendVC,msgVC,mineVC,testVC ];
+    NSMutableArray *controllersArr = [NSMutableArray array];
+    for (int i=0; i<VCs.count; i++) {
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VCs[i]];
+        [controllersArr addObject:nav];
+    }
+
+    //初始化配置信息
+    JMConfig *config = [JMConfig config];
+
+    JMTabBarController *tabBarVc = [[JMTabBarController alloc] initWithTabBarControllers:controllersArr NorImageArr:imageNormalArr SelImageArr:imageSelectedArr TitleArr:titleArr Config:config];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.imageEdgeInsets = UIEdgeInsetsMake(-20, 0, 0, 0);
+    [btn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+    [config addCustomBtn:btn AtIndex:2 BtnClickBlock:^(UIButton *btn, NSInteger index) {
+        JMLog(@"点击了我");
+        UIViewController *vc = [[UIViewController alloc] init];
+        vc.view.backgroundColor = [UIColor orangeColor];
+        [[JMConfig config].tabBarController presentViewController:vc animated:YES completion:nil];
+
+        //测试代码 (两秒后自动关闭)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [vc dismissViewControllerAnimated:YES completion:nil];
+        });
+    }];
+
+    self.window.rootViewController = tabBarVc;
+
     [self.window makeKeyAndVisible];
 
-    UIViewController* vc = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-
-    self.window.rootViewController = vc;
-    
 
 }
 
 -(void)initUserManager{
-
     DLog(@"获取设备IMEI ：%@",[OpenUDID value]);
-
     if ([userManager loadUserInfo]) {
-        self.mainTabBarC =[MainTabBarController new];
-        self.window.rootViewController = self.mainTabBarC;
+
 
         // 异步的自动登陆
         [userManager autoLoginToServer:^(BOOL success, NSString *des) {
@@ -49,7 +83,7 @@
             }else{
 
                  KPostNotification(KNotificationLoginState, @NO);
-                [MBProgressHUD showErrorMessage:NSStringFormat(@"自动登录失败：%@",des)];
+          
 
             }
 
@@ -120,9 +154,9 @@
 
     if (loginSuccess) {
 // 避免自动登陆时刷新tabbar
-        if (!self.mainTabBarC || ![self.window.rootViewController isKindOfClass:[MainTabBarController class]]) {
-            self.mainTabBarC = [MainTabBarController new];
-            self.window.rootViewController = self.mainTabBarC;
+
+
+
 
             //添加动画
             CATransition *animation = [CATransition animation];// 专门做转场动画
@@ -131,24 +165,9 @@
             animation.duration = 0.3f;
 
             [KAppWindow.layer addAnimation:animation forKey:@"revealAnimation"];
-
-}
-    }else{
-
-// 当没有登陆时  进入登陆页面
-        self.mainTabBarC = nil;
-
-        RootNavigationVC *Navigation = [[RootNavigationVC alloc]initWithRootViewController:[LoginViewController new]];
-        self.window.rootViewController = Navigation;
-
-        CATransition *animation = [CATransition animation];
-        animation.type = @"fade";
-        animation.subtype = kCATransitionFromRight;
-        animation.duration = 0.3f;
-
-        [KAppWindow.layer addAnimation:animation forKey:@"revealAnimation"];
-
     }
+
+
 }
 
 //网络改变的通知
@@ -164,11 +183,11 @@
                     KPostNotification(KNotificationAutoLoginSuccess, nil);
                     
                 }else{
-                    [MBProgressHUD showErrorMessage:NSStringFormat(@"自动登录失败：%@",des)];
+//                    [MBProgressHUD showErrorMessage:NSStringFormat(@"自动登录失败：%@",des)];
                 }
             }];
         }else{
-            [MBProgressHUD showTopTipMessage:@"网络状态不佳" isWindow:YES];
+//            [MBProgressHUD showTopTipMessage:@"网络状态不佳" isWindow:YES];
         }
     }
 }
